@@ -12,7 +12,7 @@ def register(new_user: UserCreate, db: Session):
     if db_user:
         raise HTTPException(status_code=409, detail="User already exists")
 
-    hashed_password = hashing.hash_password(new_user)
+    hashed_password = hashing.hash_password(new_user.password)
     db_user = User(
         **new_user.model_dump(exclude={"password"}),
         hashed_password=hashed_password

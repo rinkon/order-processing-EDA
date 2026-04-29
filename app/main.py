@@ -3,6 +3,7 @@ from app.api.routers import auth
 from app.api.routers import orders
 from app.database.base import Base
 from app.database.db import engine
+from app.models import user, order
 
 app = FastAPI()
 
