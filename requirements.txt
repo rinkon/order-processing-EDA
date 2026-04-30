@@ -7,3 +7,4 @@ python-dotenv
 argon2-cffi
 python-jose
 alembic
+redis
