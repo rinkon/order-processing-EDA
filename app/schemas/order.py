@@ -17,6 +17,7 @@ class OrderCreate(BaseModel):
     user_id: int
     items: list[Item]
     order_status: OrderStatus
+    idempotency_key: str
 
 
 class OrderRead(BaseModel):
@@ -25,3 +26,4 @@ class OrderRead(BaseModel):
     items: list[Item]
     order_status: OrderStatus
     created_at: datetime
+    idempotency_key: str
