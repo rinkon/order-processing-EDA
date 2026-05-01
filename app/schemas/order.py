@@ -14,13 +14,14 @@ class Item(BaseModel):
 
 
 class OrderCreate(BaseModel):
-    items: list[Item]
-    order_status: OrderStatus
+    item_id: int
+    quantity: int
 
 
 class OrderRead(BaseModel):
     id: int
     user_id: int
-    items: list[Item]
+    item_id: int
+    quantity: int
     order_status: OrderStatus
     created_at: datetime

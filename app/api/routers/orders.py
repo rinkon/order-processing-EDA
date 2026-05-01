@@ -7,10 +7,10 @@ from app.schemas.order import *
 
 router = APIRouter()
 
-@router.get("/all")
-def get_all_orders(current_user = Depends(get_current_user)):
+@router.get("/")
+def get_all_orders(current_user = Depends(get_current_user), db: Session = Depends(get_db)):
     user_id = current_user.get("user_id")
-    return "This is an authenticated response"
+    return orders_services.get_user_orders(user_id=user_id, db=db)
 
 @router.post("/")
 def place_order(payload: OrderCreate, current_user = Depends(get_current_user), db: Session = Depends(get_db), idempotency_key = Header(None)):
