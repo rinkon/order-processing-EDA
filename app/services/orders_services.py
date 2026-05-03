@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from redis import Redis
 import json
 from app.models.order import Order
-from app.workers.celery_app import process_order
+from app.workers.orders import process_order
 
 redis_client = Redis("localhost", port=6379, decode_responses=True)
 
